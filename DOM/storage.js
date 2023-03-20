@@ -27,15 +27,34 @@ function onSubmit(e){
        
    
        let obj_deserialize=JSON.parse(localStorage.getItem('myobj'));
-       console.log(obj_deserialize)
-       let userList=document.getElementById('listofusers');
+      console.log(obj_deserialize)
+      showUserOnScreen(obj);
+      
 
-       let li=document.createElement('li');
-           // textNode_username= document.createTextNode(username.value);
-           // textNode_email= document.createTextNode(email.value);
-            li.appendChild(document.createTextNode(username.value))
-            li.appendChild(document.createTextNode("----"))
-            li.appendChild(document.createTextNode(email.value))
+      // let li=document.createElement('li');
+           
+           // li.appendChild(document.createTextNode(username.value))
+            //li.appendChild(document.createTextNode("----"))
+            //li.appendChild(document.createTextNode(email.value))
 
-            listofusers.appendChild(li);
+            //listofusers.appendChild(li);
+}
+
+function showUserOnScreen(obj){
+    let parent=document.getElementById('listofusers');
+    let child=document.createElement('li');
+    
+    child.textContent=obj.name+ " "+ obj.email
+
+    const deleteButton=document.createElement('input')
+    deleteButton.type="button";
+    deleteButton.value='delete'
+
+    deleteButton.onclick= (e) =>{
+   localStorage.removeItem(obj.email)
+   parent.removeChild(child);
+
+    }
+    child.appendChild(deleteButton);
+   parent.appendChild(child);
 }
