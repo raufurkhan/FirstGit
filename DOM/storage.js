@@ -50,11 +50,23 @@ function showUserOnScreen(obj){
     deleteButton.type="button";
     deleteButton.value='delete'
 
+
+    const editButton=document.createElement('input')
+    editButton.type="button";
+    editButton.value='Edit'
+    editButton.onclick= (e) =>{
+        localStorage.removeItem(obj.email)
+        parent.removeChild(child);
+        document.getElementById("name").value=obj.name;
+        document.getElementById("email").value=obj.email;
+         }
+
     deleteButton.onclick= (e) =>{
    localStorage.removeItem(obj.email)
    parent.removeChild(child);
 
     }
     child.appendChild(deleteButton);
+    child.appendChild(editButton);
    parent.appendChild(child);
 }
