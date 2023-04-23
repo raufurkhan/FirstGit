@@ -1,0 +1,71 @@
+<script>
+
+    const posts = [{title: 'POST1',body: 'this is post1'},{title: 'POST2',body:'this is post 2'}];
+    
+    function printPost() {
+            posts.forEach((post) => {
+                console.log(post.title)
+                console.log(post.body)
+            })
+    }
+    
+    
+    const activity=async()=>{
+    const updateLastUserActivityTime=function (){
+      return new Promise((resolve,reject)=>{
+        
+        setTimeout(()=>{
+            user.lastActivityTime=new Date().toLocaleString();
+            resolve(user.lastActivityTime)
+        },1000)
+    
+    
+      })
+    
+    
+    }
+    
+    const createPost= function(arg){
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+            //user.lastActivityTime=new Date().getTime()
+            posts.push(arg);
+            resolve(arg.title)
+        },1000)   
+    
+    
+    })
+    
+    
+    }
+
+    
+    const deletePost=function(){
+        //complete this function
+        return new Promise((resolve,reject) =>{
+          setTimeout(() => {
+             const poppedElement= posts.pop();
+              resolve(poppedElement);
+          },1000)  
+            
+        })
+    }
+
+    let[post,activityTime]=await Promise.all([createPost({title: 'Post Five', body: 'This is Post Five'}),updateLastUserActivityTime()]) 
+    console.log(`the post is ${post} and time is ${activityTime}`)
+    printPost();
+
+    const deleted=await deletePost()
+    printPost();
+
+}
+    const user={
+        username:'Raufur',
+        lastActivityTime:new Date().getTime()
+    }
+
+     activity().then(()=>{
+        console.log('successfull')
+    })
+    
+    </script>
