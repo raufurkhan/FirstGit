@@ -23,7 +23,7 @@ function onSubmit(e){
        //obj_serialize=JSON.stringify(obj);
        //localStorage.setItem(email.value,obj_serialize);
        //console.log(obj_serialize);
-       axios.post("https://crudcrud.com/api/c49519d88b144b28a05c08661dea382/appointmentData",obj).then(response=>showUserOnScreen(response))
+       axios.post("https://crudcrud.com/api/69cfb8693a274930945d63bfeee50cc3/appointmentData",obj).then(response=>showUserOnScreen(response.data))
        .catch(err=>{
         document.body.innerHTML=document.body.innerHTML +"<h4> something went wrong</h4>"
         console.log(err)})   
@@ -43,7 +43,19 @@ function onSubmit(e){
             //listofusers.appendChild(li);
 }
 
+window.addEventListener("DOMContentLoaded",()=>{
+
+    axios.get("https://crudcrud.com/api/69cfb8693a274930945d63bfeee50cc3/appointmentData").then(respone=>{
+    
+    for(var i=0;i<respone.data.length;i++){
+    showUserOnScreen(respone.data[i])
+}
+})
+    .catch(err=>console.log(err))
+})
+
 function showUserOnScreen(obj){
+ 
     let parent=document.getElementById('listofusers');
     let child=document.createElement('li');
     
