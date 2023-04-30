@@ -77,7 +77,11 @@ function showUserOnScreen(obj){
          }
 
     deleteButton.onclick= (e) =>{
-   localStorage.removeItem(obj.email)
+   //localStorage.removeItem(obj.email)
+   let a=obj._id
+   axios.delete(`https://crudcrud.com/api/69cfb8693a274930945d63bfeee50cc3/appointmentData/${a}`).then(res=>{
+    parent.removeChild(child)
+}).catch(err=>console.log(err))  
    parent.removeChild(child);
 
     }
