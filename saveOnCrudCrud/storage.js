@@ -70,10 +70,12 @@ function showUserOnScreen(obj){
     editButton.type="button";
     editButton.value='Edit'
     editButton.onclick= (e) =>{
-        localStorage.removeItem(obj.email)
+        //localStorage.removeItem(obj.email)
         parent.removeChild(child);
         document.getElementById("name").value=obj.name;
         document.getElementById("email").value=obj.email;
+        let a=obj._id
+        axios.delete(`https://crudcrud.com/api/69cfb8693a274930945d63bfeee50cc3/appointmentData/${a}`)//then(res=>showOutput(res)).catch(err=>console.log(err))
          }
 
     deleteButton.onclick= (e) =>{
