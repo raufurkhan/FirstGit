@@ -1,0 +1,65 @@
+<script>
+
+const posts = [{title: 'POST1',body: 'this is post1'},{title: 'POST2',body:'this is post 2'}];
+
+function printPost() {
+        posts.forEach((post) => {
+            console.log(post.title)
+            console.log(post.body)
+        })
+}
+
+
+
+function updateLastUserActivityTime(){
+  return new Promise((resolve,reject)=>{
+    
+    setTimeout(()=>{
+        user.lastActivityTime=new Date().toLocaleString();
+        resolve(user.lastActivityTime)
+    },1000)
+
+
+  })
+
+
+}
+
+function createPost(arg){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+        //user.lastActivityTime=new Date().getTime()
+        posts.push(arg);
+        resolve(arg.title)
+    },1000)   
+
+
+})
+
+
+}
+
+function deletePost(){
+    //complete this function
+    return new Promise((resolve,reject) =>{
+      setTimeout(() => {
+         const poppedElement= posts.pop();
+          resolve(poppedElement);
+      },1000)  
+        
+    })
+}
+const user={
+    username:'Raufur',
+    lastActivityTime:new Date().getTime()
+}
+Promise.all([createPost({title: 'Post Five', body: 'This is Post Five'}), updateLastUserActivityTime()]).then(([message,lastActivityTime])=>{
+console.log(`the last activity time is ${lastActivityTime}`)
+printPost();
+})
+
+deletePost().then(()=>{
+    printPost()
+})
+
+</script>
