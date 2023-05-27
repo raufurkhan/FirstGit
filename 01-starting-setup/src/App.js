@@ -29,6 +29,7 @@ const expenses = [
 
 
 function App() {
+  
   return expenses.map((item)=>{
   return (
     
