@@ -3,6 +3,7 @@ import "./components/Expenses/Expenses.css";
 //import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses/Expenses";
 import Card from "./components/UI/Card";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const expenses = [
   {
@@ -32,7 +33,7 @@ const expenses = [
 function App() {
   return (
     <div>
-    <h2>Let's get started!</h2>
+    <NewExpense/>
     <Card className="expenses">
       <Expenses items={expenses}></Expenses>
     </Card>
