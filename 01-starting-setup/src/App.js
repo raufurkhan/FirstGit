@@ -1,4 +1,5 @@
 import "./components/Expenses/Expenses.css";
+import React,{ useState } from "react";
 
 //import ExpenseItem from "./components/ExpenseItem";
 import Expenses from "./components/Expenses/Expenses";
@@ -31,11 +32,25 @@ const expenses = [
 ];
 
 function App() {
+
+
+  const[expenseUpdated,updateExpense]=useState(expenses)
+  console.log(expenseUpdated)
+
+const addExpenseHandler=(expense)=>{
+  console.log(expense)
+  expenses.push(expense)
+   
+  updateExpense([...expenses])
+
+
+}
+
   return (
     <div>
-    <NewExpense/>
+    <NewExpense  onAddExpense={addExpenseHandler}/>
     <Card className="expenses">
-      <Expenses items={expenses}></Expenses>
+      <Expenses items={expenseUpdated}></Expenses>
     </Card>
     </div>
   );

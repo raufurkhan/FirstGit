@@ -4,6 +4,8 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
 const Expenses=(props)=>{
+
+
   const arr = props.items;
   return arr.map((item) => {
     return (
