@@ -38,10 +38,13 @@ function App() {
   console.log(expenseUpdated)
 
 const addExpenseHandler=(expense)=>{
-  console.log(expense)
-  expenses.push(expense)
+  
    
-  updateExpense([...expenses])
+  updateExpense((prevExpenes)=>{
+
+    return ([expense,...prevExpenes])
+  }
+)
 
 
 }
