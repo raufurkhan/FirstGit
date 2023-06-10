@@ -9,12 +9,14 @@ e.target.parentElement.remove();
 console.log(e.target.parentElement)
 }
   return (
+    <li>
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <ExpenseDetails title={props.title} amount={props.amount} />
       <div>{props.LocationOfExpenditure}</div>
       <button onClick={deleteHandler}>Delete</button>
     </Card>
+    </li>
   );
 }
 
