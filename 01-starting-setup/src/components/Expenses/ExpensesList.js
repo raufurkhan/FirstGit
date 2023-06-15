@@ -13,6 +13,7 @@ if(props.items.length===0){
 return (
 <ul className="expenses-list">
     {props.items.length===1 && <h2 className='expenses-list__fallback'>"Only single Expense here. Please add more..."</h2>}
+    {console.log(props.items)};
 {props.items.map((item) => (
       <ExpenseItem
         key={item.id}
