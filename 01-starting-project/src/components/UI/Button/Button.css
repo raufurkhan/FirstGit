@@ -19,3 +19,12 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 }
 
+.button.invalid {
+
+  color:rgb(228, 169, 169);
+  filter: blur(3px);
+}
+
+.button {
+  color:red
+}

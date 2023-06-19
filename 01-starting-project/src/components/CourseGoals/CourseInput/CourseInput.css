@@ -35,3 +35,12 @@
 }
 
 
+.button-control.invalid {
+
+  color:rgb(228, 169, 169);
+  filter: blur(3px);
+}
+
+.button-control {
+  color:red
+}
