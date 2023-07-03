@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import AuthContext from '../../store/auth-context';
 
 
 const emailReducer=(state,action)=>{
+  console.log("pk")
 
   if(action.type==='User-Input'){
 
@@ -45,14 +47,15 @@ const Login = (props) => {
 const[emailState,dispatchEmail]=useReducer(emailReducer,{value:'', isValid:null})
 const[passwordState,dispatchPassword]=useReducer(passwordReducer,{value:'', isValid:null})
 
+const ct=useContext(AuthContext)
 
-  useEffect(() => {
-    console.log('EFFECT RUNNING');
+ // useEffect(() => {
+   // console.log('EFFECT RUNNING');
 
-    return () => {
-      console.log('EFFECT CLEANUP');
-    };
-  }, []);
+    //return () => {
+      //console.log('EFFECT CLEANUP');
+    //};
+  //}, []);
 
   const{isValid: emailValid}=emailState
   const{isValid: passwordValid}=passwordState
@@ -100,7 +103,7 @@ const[passwordState,dispatchPassword]=useReducer(passwordReducer,{value:'', isVa
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    ct.onLogin(emailState.value, passwordState.value);
   };
 
   return (
